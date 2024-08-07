@@ -21,7 +21,8 @@ export class OpenHRMLeavePage extends BasePage {
 
     this.leaveTypeDropdown = page.getByText("-- Select --").first();
     this.selectOption = page.getByRole("option", { name: "CAN - FMLA" });
-    this.fromDateInput = page.getByPlaceholder("dd-mm-yyyy").first();
+    // this.fromDateInput = page.getByPlaceholder("dd-mm-yyyy").first();
+    this.fromDateInput = page.getByPlaceholder("yyyy-dd-mm").first();
     this.selectFromDate = page.getByText("14");
 
     this.reasonInput = page.locator("textarea");

@@ -1,5 +1,6 @@
 import { Page, Locator } from "@playwright/test";
 import { BasePage } from "../BasePage";
+import { openHRMCredentials } from "@fixtures/constants";
 
 export class OpenHRMLoginPage extends BasePage {
   private usernameInput: Locator;
@@ -18,7 +19,16 @@ export class OpenHRMLoginPage extends BasePage {
       .filter({ hasText: "Invalid credentials" });
   }
 
-  async login(username: string, password: string) {
+  // async login(username: string, password: string) {
+  //   await this.fillInput(this.usernameInput, username);
+  //   await this.fillInput(this.passwordInput, password);
+  //   await this.clickButton(this.loginButton);
+  // }
+
+  async login(
+    username: string = openHRMCredentials.username,
+    password: string = openHRMCredentials.password
+  ) {
     await this.fillInput(this.usernameInput, username);
     await this.fillInput(this.passwordInput, password);
     await this.clickButton(this.loginButton);
