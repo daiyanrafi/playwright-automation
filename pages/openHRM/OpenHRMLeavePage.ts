@@ -30,7 +30,8 @@ export class OpenHRMLeavePage extends BasePage {
 
     this.myLeave = page.getByRole("link", { name: "My Leave" });
     this.leaveListButton = page.getByRole("button", { name: "" });
-    this.leaveListButton = page.getByRole("row", { name: " 2024-15-08 aaa oEQii wQAqg" })
+    this.leaveListButton = page
+      .getByRole("row", { name: " 2024-15-08 aaa oEQii wQAqg" })
       .getByRole("listitem")
       .getByRole("button");
     this.addCommentButton = page.getByText("Add Comment");
