@@ -86,9 +86,8 @@ export default function openHRMLoginAndNavigateTests() {
       });
 
       await test.step("Verify leave cancellation success message", async () => {
-        await expect(
-          page.locator("text=Leave Canceled Successfully")
-        ).toBeVisible();
+        // await expect(page.locator("text=Leave Canceled Successfully")).toBeVisible();
+        expect(await leavePage.cancelMessage()).toBe(true);
       });
     });
   });

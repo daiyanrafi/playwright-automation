@@ -15,6 +15,7 @@ export class OpenHRMLeavePage extends BasePage {
   private saveButton: Locator;
   private updatedText: Locator;
   private cancelButton: Locator;
+  private cancelNotification: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -39,6 +40,7 @@ export class OpenHRMLeavePage extends BasePage {
     this.saveButton = page.getByRole("button", { name: "Save" });
     this.updatedText = page.getByText("Family-GG-1");
     this.cancelButton = page.getByRole("button", { name: "Cancel" });
+    this.cancelNotification = page.locator("text=Leave Canceled Successfully");
   }
 
   async applyLeave(reason: string) {
@@ -66,5 +68,9 @@ export class OpenHRMLeavePage extends BasePage {
 
   async updatedLeaveComment(): Promise<boolean> {
     return this.updatedText.isVisible();
+  }
+  
+  async cancelMessage(): Promise<boolean> {
+    return this.cancelNotification.isVisible();
   }
 }
